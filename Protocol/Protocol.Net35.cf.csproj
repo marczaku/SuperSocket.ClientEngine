@@ -5,21 +5,21 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProductVersion>9.0.30729</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{818DF11D-0B8E-49F6-8DCA-03412C316B8D}</ProjectGuid>
+    <ProjectGuid>{73EDDB1C-1B51-4095-A7F1-D2876B294BC5}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>SuperSocket.ClientEngine</RootNamespace>
-    <AssemblyName>SuperSocket.ClientEngine.Common</AssemblyName>
+    <RootNamespace>SuperSocket.ClientEngine.Protocol</RootNamespace>
+    <AssemblyName>SuperSocket.ClientEngine.Protocol</AssemblyName>
     <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
-    <TargetFrameworkProfile>
-    </TargetFrameworkProfile>
     <ProjectTypeGuids>{4D628B5B-2FBC-4AA6-8C16-197242AEB884};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
     <PlatformFamilyName>WindowsCE</PlatformFamilyName>
     <PlatformID>E2BECB1F-8C8C-41ba-B736-9BE7D946A398</PlatformID>
     <OSVersion>5.0</OSVersion>
     <DeployDirSuffix>tps</DeployDirSuffix>
     <NativePlatformName>Windows CE</NativePlatformName>
+    <TargetFrameworkProfile>
+    </TargetFrameworkProfile>
     <FormFactorID>
     </FormFactorID>
   </PropertyGroup>
@@ -56,24 +56,32 @@
     <Reference Include="mscorlib" />
     <Reference Include="System" />
     <Reference Include="System.Core" />
-    <Reference Include="System.Data" />
-    <Reference Include="System.XML" />
+    <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="..\GlobalAssemblyInfo.cs">
       <Link>GlobalAssemblyInfo.cs</Link>
     </Compile>
-    <Compile Include="ConcurrentBatchQueue.Net20.cs" />
-    <Compile Include="DnsEndPoint.cs" />
-    <Compile Include="ExtensionAttribute.cs" />
-    <Compile Include="Extensions.cs" />
-    <Compile Include="IBatchQueue.cs" />
-    <Compile Include="IProxyConnector.cs" />
-    <Compile Include="PosList.cs" />
+    <Compile Include="ArraySegmentEx.cs" />
+    <Compile Include="ArraySegmentList.cs" />
+    <Compile Include="BinaryCommandInfo.cs" />
+    <Compile Include="CommandInfo.cs" />
+    <Compile Include="DelegateCommand.cs" />
+    <Compile Include="IClientCommandReader.cs" />
+    <Compile Include="ICommand.cs" />
+    <Compile Include="ICommandInfo.cs" />
     <Compile Include="Properties\AssemblyInfo.Net35.cs" />
-    <Compile Include="ProxyEventArgs.cs" />
-    <Compile Include="SearchMarkState.cs" />
-    <Compile Include="SocketAsyncEventArgs.cs" />
+    <Compile Include="StringCommandInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Common\Common.Net35.cf.csproj">
+      <Project>{818DF11D-0B8E-49F6-8DCA-03412C316B8D}</Project>
+      <Name>Common.Net35.cf</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Core\Core.Net35 .cf.csproj">
+      <Project>{873F2AFF-0C7C-4D05-B1F8-6651668EF5EB}</Project>
+      <Name>Core.Net35 .cf</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Condition="'$(TargetFrameworkVersion)' == 'v1.0'" Project="$(MSBuildBinPath)\Microsoft.CompactFramework.CSharp.v1.targets" />
   <Import Condition="'$(TargetFrameworkVersion)' == 'v3.5'" Project="$(MSBuildBinPath)\Microsoft.CompactFramework.CSharp.targets" />
