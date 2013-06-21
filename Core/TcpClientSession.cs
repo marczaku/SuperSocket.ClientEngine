@@ -81,32 +81,32 @@ namespace SuperSocket.ClientEngine
 
 		protected abstract void SocketEventArgsCompleted(object sender, SocketAsyncEventArgs e);
 
-//        public override void Connect()
-//        {
-//            if (m_InConnecting)
-//                throw new Exception("The socket is connecting, cannot connect again!");
+		public override void Connect()
+		{
+			if (m_InConnecting)
+				throw new Exception("The socket is connecting, cannot connect again!");
 
-//            if (Client != null)
-//                throw new Exception("The socket is connected, you neednt' connect again!");
+			if (Client != null)
+				throw new Exception("The socket is connected, you neednt' connect again!");
 
-//            //If there is a proxy set, connect the proxy server by proxy connector
-//            if (Proxy != null)
-//            {
-//                Proxy.Completed += new EventHandler<ProxyEventArgs>(Proxy_Completed);
-//                Proxy.Connect(RemoteEndPoint);
-//                m_InConnecting = true;
-//                return;
-//            }
+			//If there is a proxy set, connect the proxy server by proxy connector
+			if (Proxy != null)
+			{
+				Proxy.Completed += new EventHandler<ProxyEventArgs>(Proxy_Completed);
+				Proxy.Connect(RemoteEndPoint);
+				m_InConnecting = true;
+				return;
+			}
 
-//            m_InConnecting = true;
+			m_InConnecting = true;
 
-//            //WindowsPhone doesn't have this property
-//#if SILVERLIGHT && !WINDOWS_PHONE
-//            RemoteEndPoint.ConnectAsync(ClientAccessPolicyProtocol, ProcessConnect, null);
-//#else
-//            //RemoteEndPoint.ConnectAsync(ProcessConnect, null);
-//#endif
-//        }
+			//WindowsPhone doesn't have this property
+#if SILVERLIGHT && !WINDOWS_PHONE
+            RemoteEndPoint.ConnectAsync(ClientAccessPolicyProtocol, ProcessConnect, null);
+#else
+			//RemoteEndPoint.ConnectAsync(ProcessConnect, null);
+#endif
+		}
 
 		void Proxy_Completed(object sender, ProxyEventArgs e)
 		{
