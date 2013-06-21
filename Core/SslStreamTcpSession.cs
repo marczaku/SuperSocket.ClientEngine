@@ -4,7 +4,6 @@ using System.Text;
 using System.Net;
 using System.Net.Sockets;
 using System.Security.Cryptography.X509Certificates;
-using System.Net.Security;
 
 namespace SuperSocket.ClientEngine
 {
