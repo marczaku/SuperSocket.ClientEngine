@@ -68,12 +68,14 @@
     <Compile Include="IBufferSetter.cs" />
     <Compile Include="IClientSession.cs" />
     <Compile Include="Properties\AssemblyInfo.Net35.cs" />
+    <Compile Include="SslStreamTcpSession.cs" />
+    <Compile Include="AsyncTcpSession.cs" />
     <Compile Include="TcpClientSession.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Common\Common.Net35.cf.csproj">
+    <ProjectReference Include="..\Common\Common.Net35.csproj">
       <Project>{818DF11D-0B8E-49F6-8DCA-03412C316B8D}</Project>
-      <Name>Common.Net35.cf</Name>
+      <Name>Common.Net35</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Condition="'$(TargetFrameworkVersion)' == 'v1.0'" Project="$(MSBuildBinPath)\Microsoft.CompactFramework.CSharp.v1.targets" />

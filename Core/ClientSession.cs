@@ -51,17 +51,12 @@ namespace SuperSocket.ClientEngine
 
             while (true)
             {
-                SpinWait(1);
+                Thread.SpinWait(1);
 
                 if (TrySend(segment))
                     return;
             }
         }
-
-		private void SpinWait(int p)
-		{
-			System.Threading.Thread.Sleep(1);
-		}
 
         public void Send(IList<ArraySegment<byte>> segments)
         {
@@ -70,7 +65,7 @@ namespace SuperSocket.ClientEngine
 
             while (true)
             {
-                SpinWait(1);
+                Thread.SpinWait(1);
 
                 if (TrySend(segments))
                     return;
@@ -161,8 +156,8 @@ namespace SuperSocket.ClientEngine
 
             if(client != null)
             {
-				//if(client.NoDelay != NoDeplay)
-				//    client.NoDelay = NoDeplay;
+                if(client.NoDelay != NoDeplay)
+                    client.NoDelay = NoDeplay;
             }
 
             IsConnected = true;
