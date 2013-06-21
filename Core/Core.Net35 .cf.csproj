@@ -56,6 +56,8 @@
     <Reference Include="mscorlib" />
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.XML" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="..\GlobalAssemblyInfo.cs">
@@ -68,6 +70,7 @@
     <Compile Include="IBufferSetter.cs" />
     <Compile Include="IClientSession.cs" />
     <Compile Include="Properties\AssemblyInfo.Net35.cs" />
+    <Compile Include="SyncTcpClientSession.cs" />
     <Compile Include="TcpClientSession.cs" />
   </ItemGroup>
   <ItemGroup>
